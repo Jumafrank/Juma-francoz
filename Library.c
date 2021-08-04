@@ -21,7 +21,7 @@ void returnedbook();
 void issuefine();
 void  maxbooks();
 void  user();
-void login();
+
 
 
 
@@ -40,8 +40,8 @@ void admin()
 
   int action;
   printf("***************************************************\n");
-     printf("enter 1 for adding staff \n");
-     printf("enter 2 for deleting  staff \n");
+      printf("enter 1 for adding staff \n");
+      printf("enter 2 for deleting  staff \n");
       printf("enter 3 for edioting  staff \n");
       scanf("%d",&action);
      printf("***************************************************\n");
@@ -84,10 +84,10 @@ void deletingstaff()
 void staff()
 {
     int select;
-    printf(" 1.add user\n");
-    printf("2.delete user\n");
-     printf("3.add abook\n");    
-      printf("4.delete abook\n");
+       printf(" 1.add user\n");
+       printf("2.delete user\n");
+       printf("3.add abook\n");    
+       printf("4.delete abook\n");
        printf("5.issue abook\n");
        printf("6.mark returned book\n");
        printf("7.issue fines\n");
@@ -97,8 +97,8 @@ void staff()
        switch(select)
        {
            case 1:
-             adduser();
-             break;
+           adduser();
+           break;
            case 2:
            deleteuser();
            break;
@@ -109,19 +109,19 @@ void staff()
            deletebook();
            break;
            case 5:
-             issuebook();
-            break;
-            case 6:
-             returnedbook();
-             break;
-             case 7:
-             issuefine();
-             break;
-             case 8:
-              maxbooks();
-             break;
-             default:
-             printf("invalid selection");
+           issuebook();
+           break;
+           case 6:
+           returnedbook();
+           break;
+           case 7:
+           issuefine();
+           break;
+           case 8:
+           maxbooks();
+           break;
+           default:
+           printf("invalid selection");
     }
 
 }
@@ -153,14 +153,16 @@ void addabook()
     printf("enter auther name\n");
     scanf("%d",&author);
     printf("enter edition");
-    scanf("%d",edition);
+    scanf("%d",&edition);
     printf("book successfully added\n");
 }
 void deletebook()
 {
-    int title,author,edition;
+    char title;
+    int author[20];
+    char edition[15];
     printf("enter book title \n");
-    scanf("%d",&title);
+    scanf("%s",title);
     printf("enter auther name\n");
     scanf("%d",&author);
     printf("enter edition\n");
@@ -169,15 +171,16 @@ void deletebook()
 }
 void issuebook()
 {
-    int user,registration,title,date;
+    char user[20];
+    int registration,title,date;
     printf("enter user name\n");
-    scanf("%d",user);
+    scanf("%s",user);
     printf("enter user registration\n");
-    scanf("%d",registration);
+    scanf("%d",&registration);
     printf("enter book title\n");
-    scanf("%d",title);
+    scanf("%d",&title);
     printf("enter due date\n");
-    scanf("%d",date);
+    scanf("%d",&date);
     printf("book successfully issued user\n");
 }
 void returnedbook()
@@ -215,29 +218,23 @@ void maxbooks()
 }
 void user()
 {
-    int details;
+    char username[20];
+    int id;
     printf("please login\n");
-    scanf("%d",details);
-    switch(details)
-{
-        case 1:
-         login();
-         break;
-       default:
-      printf("user must login first\n");
-}
-}
-void login()
-{
-    int name,pin;
     printf("enter username\n");
-    scanf("%d",&name);
+    scanf("%s",username);
     printf("enter password\n");
-    scanf("%d",pin);
-    printf("you have logged in successfully \n");
+    scanf("%d",&id);
+    if(id==7777)
+    {
+       printf("you have successfully logged in");
+    }
+    else;
+    {
+        printf("invalid password\n");
+    }
 }
-
-int main(void)
+  int main(void)
 {
 
       int option;
@@ -257,7 +254,7 @@ int main(void)
           staff();
           break;
           case 3:
-           user();
+          user();
           break;
 
       }
